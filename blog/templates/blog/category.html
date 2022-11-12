@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+    {{ category.title }}
+{% block title %}Category{% endblock %} {% block
+    content %}
+    
+    {% block content %}
+
+        {% for post in posts %}
+            <small>Posted {{ post.created_at|timesince}} ago</small>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.intro }}</p>
+            <a href="{% url 'post_detail' post.category.slug post.slug %}">view</a>
+            <hr />
+        {% empty %}
+            couldn't find any post for category: {{ category.title }}
+        {% endfor %}
+    {% endblock %}
+    

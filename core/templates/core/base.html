@@ -6,13 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock %} | Gaara Blog</title>
     <style>
+      html {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+      body {
+        background-color: gainsboro;
+        margin: 0;
+        padding: 0;
+      }
       header,
       main,
       footer,
       aside {
         padding: 1rem;
         margin: 0.5rem;
-        background-color: gainsboro;
+        background-color: rgb(247, 242, 242);
         border-radius: 2px;
       }
       header {
@@ -20,7 +28,7 @@
       }
       main {
         grid-area: m;
-        min-height: 80vh;
+        min-height: 50vh;
       }
       aside {
         grid-area: a;
@@ -39,7 +47,9 @@
     </style>
   </head>
   <body>
-    <header>Site Header</header>
+    <header>
+      <a href="{% url 'frontpage' %}">[home]</a>
+    </header>
 
     <main>{% block content %} {% endblock %}</main>
 

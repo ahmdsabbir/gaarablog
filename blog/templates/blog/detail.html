@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <small>{{ post.created_at }}</small>
+    <blockquote>{{ post.intro }}</blockquote>
+    <p>{{ post.body }}</p>
+    <p>Category: <a href="{% url 'category_detail' post.category.slug %}">{{ post.category }}</a></p>
+
+    <hr />
+
+    <h2>Comments</h2>
+
+    {% for comment in comments %}
+        <p><strong>{{ comment.name }}</strong> commented {{ comment.created_at|timesince}} ago:</p>
+        <p>{{ comment.body }}</p>
+    {% endfor %}
+
+    <h3>Make a comment</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Post Comment</button>
+    </form>
+
+{% endblock %}
