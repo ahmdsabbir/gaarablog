@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %} | Gaara Blog</title>
+    <style>
+      header,
+      main,
+      footer,
+      aside {
+        padding: 1rem;
+        margin: 0.5rem;
+        background-color: gainsboro;
+        border-radius: 2px;
+      }
+      header {
+        grid-area: h;
+      }
+      main {
+        grid-area: m;
+        min-height: 80vh;
+      }
+      aside {
+        grid-area: a;
+      }
+      footer {
+        grid-area: f;
+      }
+      body {
+        display: grid;
+        grid-template-areas:
+          "h h h h h"
+          ". m m a ."
+          ". m m a ."
+          "f f f f f";
+      }
+    </style>
+  </head>
+  <body>
+    <header>Site Header</header>
+
+    <main>{% block content %} {% endblock %}</main>
+
+    <aside>Sidebar</aside>
+
+    <footer>Site footer</footer>
+  </body>
+</html>

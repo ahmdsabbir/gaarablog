@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %} {% block title %}Home{% endblock %} {% block
+content %}
+
+{% block content %}
+    <h1>Front Page</h1>
+    <p>Welcome to our blog. Enjoy...</p>
+
+    <h2>All Posts</h2>
+    {% for post in posts %}
+        <small>Posted {{ post.created_at|timesince}} ago</small>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.intro }}</p>
+        <hr />
+    {% endfor %}
+{% endblock %}
